@@ -1,44 +1,75 @@
 body {
 	font-family: Arial, sans-serif;
-	/* display: flex; */
+	background-color: #121212;
+	color: #eeeeee;
+	margin: 0;
+	min-height: 100vh;
+	display: flex;
 	justify-content: center;
 	align-items: center;
-	height: 100vh;
-	margin: 0;
-	background-color: #f0f0f0;
+	padding: 1rem;
+	box-sizing: border-box;
 }
+
 .container {
-	text-align: center;
-	background-color: white;
+	background-color: #1e1e1e;
+	color: #eeeeee;
 	padding: 2rem;
-	border-radius: 10px;
-	box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+	border-radius: 12px;
+	box-shadow: 0 0 20px rgba(255, 193, 7, 0.3);
+	width: 100%;
+	max-width: 600px;
+	text-align: center;
 	position: relative;
+	transition: background-color 0.3s ease;
 }
-#question {
+
+h1 {
+	color: #ffc107;
 	font-size: 2rem;
 	margin-bottom: 1rem;
 }
+
+button {
+	background-color: #ffc107;
+	color: #121212;
+	border: none;
+	border-radius: 5px;
+	padding: 0.5rem 1rem;
+	margin: 0.3rem;
+	font-size: 1rem;
+	cursor: pointer;
+	transition: background-color 0.3s ease, transform 0.1s ease;
+}
+
+button:hover {
+	background-color: #ff5722;
+	transform: scale(1.03);
+}
+
+#question {
+	font-size: 1.8rem;
+	margin: 1rem 0;
+}
+
 #answer {
 	font-size: 1.5rem;
 	padding: 0.5rem;
 	width: 100px;
+	text-align: center;
+	border: none;
+	border-radius: 5px;
+	background-color: #2a2a2a;
+	color: #fff;
 }
-button {
-	font-size: 1rem;
-	padding: 0.5rem 1rem;
-	margin: 0.5rem;
-	cursor: pointer;
-}
+
 #feedback {
-	font-size: 1.5rem;
-	margin-top: 1rem;
+	font-size: 1.3rem;
 	font-weight: bold;
+	margin-top: 1rem;
+	color: #4caf50;
 }
-#range-buttons,
-#table-buttons {
-	margin-bottom: 1rem;
-}
+
 .tooltip {
 	display: none;
 	position: absolute;
@@ -50,9 +81,63 @@ button {
 	top: 50px;
 	left: 50%;
 	transform: translateX(-50%);
+	max-width: 90%;
+	font-size: 0.9rem;
+	word-break: break-word;
+	box-shadow: 0 0 10px rgba(255, 193, 7, 0.2);
 }
 
-h1 {
+/* Range + Table Buttons Layout */
+#range-buttons,
+#table-buttons {
 	display: flex;
+	flex-wrap: wrap;
 	justify-content: center;
+	gap: 0.5rem;
+	margin-bottom: 1rem;
+}
+
+/* Collapsible Drawer Styles */
+#table-drawer {
+	max-height: 0;
+	overflow: hidden;
+	transition: max-height 0.3s ease, padding 0.3s ease;
+}
+
+#table-drawer.expanded {
+	max-height: 300px;
+	padding: 0.5rem 0;
+}
+
+#drawer-toggle {
+	background-color: #ffc107;
+	color: #121212;
+	border: none;
+	border-radius: 5px;
+	padding: 0.5rem 1rem;
+	margin: 0.5rem 0;
+	cursor: pointer;
+	font-weight: bold;
+	transition: background-color 0.3s ease;
+}
+
+#drawer-toggle:hover {
+	background-color: #ff5722;
+	color: #fff;
+}
+
+@media (max-width: 600px) {
+	.container {
+		padding: 1rem;
+	}
+	button {
+		font-size: 0.9rem;
+		padding: 0.4rem;
+	}
+	#question {
+		font-size: 1.4rem;
+	}
+	#feedback {
+		font-size: 1rem;
+	}
 }
